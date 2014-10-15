@@ -154,11 +154,11 @@ REPORT_EXIT_STATUS=1 \
 
 cd ../%{proj_name}-zts
 
-TEST_PHP_EXECUTABLE=%{__ztsphp} \
+TEST_PHP_EXECUTABLE=%{_bindir}/zts-php \
 TEST_PHP_ARGS="-n -d extension_dir=$PWD/modules -d extension=%{pecl_name}.so" \
 NO_INTERACTION=1 \
 REPORT_EXIT_STATUS=1 \
-%{__ztsphp} -n run-tests.php
+%{_bindir}/zts-php -n run-tests.php
 
 
 %post

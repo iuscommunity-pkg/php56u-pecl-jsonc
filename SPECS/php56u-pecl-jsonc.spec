@@ -18,7 +18,7 @@
 Summary:       Support for JSON serialization
 Name:          %{php_base}-pecl-%{proj_name}
 Version:       1.3.6
-Release:       2.ius%{?dist}
+Release:       3.ius%{?dist}
 License:       PHP
 Group:         Development/Languages
 URL:           http://pecl.php.net/package/%{proj_name}
@@ -187,8 +187,16 @@ fi
 
 
 %changelog
-* Wed Sep 10 2014 Ben Harper <ben.harper@rackspace.com> - 1..3.6-2.ius
-- porting to php55u
+* Wed Oct 15 2014 Carl George <carl.george@rackspace.com> - 1.3.6-3.ius
+- Conflict with stock package
+- Use same provides as stock package
+- Directly require the correct pear package, not /usr/bin/pecl
+- add numerical prefix to extension configuration file
+- move documentation in pecl_docdir
+- move tests in pecl_testdir (devel)
+
+* Wed Sep 10 2014 Ben Harper <ben.harper@rackspace.com> - 1.3.6-2.ius
+- porting from php55u
 
 * Fri Aug 01 2014 Carl George <carl.george@rackspace.com> - 1.3.6-1.ius
 - Latest sources from upstream

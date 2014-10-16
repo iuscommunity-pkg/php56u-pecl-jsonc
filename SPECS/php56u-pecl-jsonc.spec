@@ -6,7 +6,6 @@
 #
 # Please, preserve the changelog entries
 #
-%{!?__pecl:      %{expand: %%global __pecl      %{_bindir}/pecl}}
 
 %global pecl_name  json
 %global proj_name  jsonc

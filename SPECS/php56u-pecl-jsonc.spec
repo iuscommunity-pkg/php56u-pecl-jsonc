@@ -106,8 +106,8 @@ pushd NTS
 
 # Sanity check, really often broken
 extver=$(sed -n '/#define PHP_JSON_VERSION/{s/.* "//;s/".*$//;p}' php_json.h )
-if test "x${extver}" != "x%{version}%{?prever:-%{prever}}"; then
-   : Error: Upstream extension version is ${extver}, expecting %{version}%{?prever:-%{prever}}.
+if test "x${extver}" != "x%{version}%{?prever:%{prever}}"; then
+   : Error: Upstream extension version is ${extver}, expecting %{version}%{?prever:%{prever}}.
    exit 1
 fi
 popd

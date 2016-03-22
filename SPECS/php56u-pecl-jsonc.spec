@@ -20,7 +20,10 @@ Summary:       Support for JSON serialization
 Name:          %{php_base}-pecl-%{proj_name}
 Version:       1.3.9
 Release:       2.ius%{?dist}
-License:       PHP
+# PHP extension is PHP
+# jsonc-c is MIT
+# json-c/linkhask.c is Public Domain
+License:       PHP and MIT and Public Domain
 Group:         Development/Languages
 URL:           http://pecl.php.net/package/%{proj_name}
 Source0:       http://pecl.php.net/get/%{proj_name}-%{version}.tgz
@@ -192,6 +195,8 @@ fi
 
 
 %files
+%{?_licensedir:%license NTS/LICENSE}
+%{?_licensedir:%license NTS/json-c/COPYING}
 %doc %{pecl_docdir}/%{pecl_name}
 %config(noreplace) %{php_inidir}/%{ini_name}
 %{php_extdir}/%{pecl_name}.so
@@ -217,6 +222,7 @@ fi
 - Clean up filters
 - ZTS cleanup
 - Install package.xml as jsonc.xml, not %%{name}.xml
+- Import license handling from Fedora
 
 * Tue Sep 15 2015 Carl George <carl.george@rackspace.com> - 1.3.9-1.ius
 - Latest upstream

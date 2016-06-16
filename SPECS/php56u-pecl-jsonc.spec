@@ -19,7 +19,7 @@
 Summary:       Support for JSON serialization
 Name:          %{php_base}-pecl-%{proj_name}
 Version:       1.3.10
-Release:       1.ius%{?dist}
+Release:       2.ius%{?dist}
 # PHP extension is PHP
 # jsonc-c is MIT
 # json-c/linkhask.c is Public Domain
@@ -70,9 +70,8 @@ Conflicts:     php-pecl-%{proj_name} < %{version}
 
 # RPM 4.8
 %{?filter_provides_in: %filter_provides_in %{php_extdir}/.*\.so$}
+%{?filter_provides_in: %filter_provides_in %{php_ztsextdir}/.*\.so$}
 %{?filter_setup}
-# RPM 4.9
-%global __provides_exclude_from %{?__provides_exclude_from:%__provides_exclude_from|}%{php_extdir}/.*\\.so$
 
 
 %description
@@ -216,6 +215,9 @@ fi
 
 
 %changelog
+* Thu Jun 16 2016 Ben Harper <ben.harper@rackspace.com> - 1.3.10-2.ius
+- update filters to include zts
+
 * Wed Jun 15 2016 Ben Harper <ben.harper@rackspace.com> - 1.3.10-1.ius
 - Latest upstream
 
